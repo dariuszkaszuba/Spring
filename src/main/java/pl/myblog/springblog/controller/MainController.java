@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.myblog.springblog.model.Post;
 import pl.myblog.springblog.model.User;
@@ -13,6 +14,7 @@ import pl.myblog.springblog.service.MainService;
 import java.util.List;
 
 @RestController
+@RequestMapping("/rest")
 public class MainController {
 
     MainService mainService;
