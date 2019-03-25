@@ -1,6 +1,8 @@
 package pl.myblog.springblog.model;
 
+import javafx.geometry.Pos;
 import lombok.Data;
+import lombok.Getter;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -28,7 +30,7 @@ public class User {
     @Pattern(regexp = "([A-Z]+.*[0-9]+|[0-9]+.*[A-Z])")
     private String password;
 
-    private boolean active = true;
+    private Boolean active = true;
     private LocalDateTime registered_date = LocalDateTime.now();
 
     @ManyToMany
@@ -40,4 +42,7 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
     private Set<Post> posts = new HashSet<>();
 
+    public void addPost(Post post){
+        this.posts.add(post);
+    }
 }

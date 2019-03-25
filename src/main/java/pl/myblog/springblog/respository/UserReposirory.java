@@ -8,4 +8,6 @@ import pl.myblog.springblog.model.User;
 public interface UserReposirory extends JpaRepository<User, Long> {
     // select * From user Where email =?
     User findByEmail(String email);
+    // SELECt * from user Where emial = ? and password = ?
+    User findByEmailAndPassword(String email, String password);
 }
